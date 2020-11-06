@@ -1,0 +1,18 @@
+certifi==2020.6.20
+cffi @ file:///C:/ci/cffi_1600699250966/work
+click==7.1.2
+cryptography @ file:///C:/ci/cryptography_1601046913206/work
+Flask==1.1.2
+Flask-JSON==0.3.4
+Flask-SQLAlchemy @ file:///tmp/build/80754af9/flask-sqlalchemy_1596836624296/work
+Flask-WTF==0.14.3
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe @ file:///C:/ci/markupsafe_1594405949945/work
+pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
+PyMySQL @ file:///C:/ci/pymysql_1601577445570/work
+six==1.15.0
+SQLAlchemy @ file:///C:/ci/sqlalchemy_1603818968375/work
+Werkzeug==1.0.1
+wincertstore==0.2
+WTForms @ file:///tmp/build/80754af9/wtforms_1597707484216/work
