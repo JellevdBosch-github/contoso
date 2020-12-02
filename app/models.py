@@ -48,7 +48,7 @@ class Customer(Base):
     customer_type = db.Column(db.String(15), default='', nullable=False)
     title = db.Column(db.String(8), default='', nullable=False)
 
-    orders = db.relationship(lazy='select', backref=db.backref('customer', lazy='joined'))
+    orders = db.relationship('Order', lazy='select', backref=db.backref('customer', lazy='joined'))
 
     def __repr__(self):
         return f'<Customer #{self.id} | {self.first_name} {self.middle_name} {self.last_name}>'

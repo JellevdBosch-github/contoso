@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from config import config
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
 app.config.update(
@@ -10,6 +11,7 @@ app.config.update(
     SQLALCHEMY_DATABASE_URI=config.SQLALCHEMNY_DATABASE_URI,
     SQLALCHEMY_TRACK_MODIFICATIONS=config.SQLALCHEMY_TRACK_MODIFICATIONS
 )
+Bootstrap(app)
 db = SQLAlchemy(app)
 
 
