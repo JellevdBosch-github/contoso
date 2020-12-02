@@ -1,0 +1,180 @@
+* {
+    box-sizing: border-box
+}
+#burgundy {
+    color: rgb(153, 40, 59)
+}
+#orange,
+select,
+.btn {
+    color: orange
+}
+
+.search-nav-item {
+    height: 40px
+}
+nav {
+    padding: 0 100px
+}
+.form-group {
+    margin-bottom: 5px
+}
+label {
+    padding-left: 10px
+}
+.form-group:last-child {
+    margin-bottom: 0
+}
+h6 {
+    margin-bottom: 0px
+}
+.btn {
+    border: 1px solid orange;
+    border-radius: 10px;
+    background-color: #fff
+}
+.btn:hover {
+    color: #fff;
+    background-color: orange
+}
+.card-body {
+    padding: 8px
+}
+.sign {
+    width: 25px;
+    height: 25px
+}
+.discount {
+    border: 1px solid orange;
+    border-radius: 5px;
+    width: 65px;
+    position: absolute;
+    top: 2%
+}
+@media(min-width:1200px) {
+    .text {
+        display: none
+    }
+    #sidebar {
+        width: 30%;
+        padding: 20px;
+        float: left
+    }
+    #products {
+        width: 70%;
+        padding: 10px;
+        margin: 0;
+        float: right
+    }
+    .card {
+        width: 300px;
+        height: 330px;
+        border: none
+    }
+    .card-img-top {
+        width: 295px;
+        height: 200px;
+        border-radius: 10px
+    }
+    del {
+        padding-right: 2px
+    }
+    .filter {
+        display: none
+    }
+}
+
+@media(min-width:992px) and (max-width:1199px) {
+    .text {
+        display: none
+    }
+    #sidebar {
+        width: 30%;
+        padding: 20px;
+        float: left
+    }
+    #products {
+        width: 70%;
+        padding: 10px;
+        margin: 0;
+        float: right
+    }
+    .card {
+        width: 200px;
+        height: 330px;
+        border: none
+    }
+    .card-img-top {
+        width: 200px;
+        height: 200px;
+        border-radius: 10px
+    }
+    .sign {
+        height: 25px
+    }
+    .price {
+        width: 99px
+    }
+    .filter {
+        display: none
+    }
+}
+
+@media(min-width:768px) and (max-width:991px) {
+    .text {
+        display: none
+    }
+    #sidebar {
+        width: 35%;
+        padding: 20px;
+        float: left
+    }
+    #products {
+        width: 65%;
+        padding: 10px;
+        margin: 0;
+        float: right
+    }
+    .card {
+        border: none
+    }
+    .filter {
+        display: none
+    }
+}
+
+@media(min-width:576px) and (max-width:767px) {
+    .text {
+        display: none
+    }
+    #sidebar {
+        width: 40%;
+        padding: 20px;
+        float: left
+    }
+    #products {
+        width: 60%;
+        padding: 10px;
+        margin: 0;
+        float: right
+    }
+    .card {
+        border: none
+    }
+    #off {
+        padding-left: 2px
+    }
+    .filter {
+        display: none
+    }
+}
+
+@media(max-width:575px) {
+    #sidebar {
+        display: none
+    }
+    .filter {
+        margin-left: 70%;
+        margin-top: 2%
+    }
+}

@@ -13,7 +13,7 @@ def signup():
     form = RegistrationForm(request.form)
     if form.validate_on_submit():
         user = Customer.query.filter_by(email=form.email.data).first()
-        if not user and check_password_hash(user.password, form.password.data):
+        if not user:
             session['user_id'] = user.id
             session['logged_in'] = True
             return redirect('/')

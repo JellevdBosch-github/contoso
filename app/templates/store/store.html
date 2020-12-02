@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='store.css') }}">
+{% endblock %}
+{% block title %} {{ title }} {% endblock %}
+{% block content %}
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+            <h1 class="display-4 font-weight-normal">Contoso store</h1>
+            <p class="lead font-weight-normal">Buy our products now! Check out our highlighted categories below with the best deals!</p>
+            <a href="/categories" class="btn btn-primary my-2">Categories</a>
+            <a class="btn btn-outline-secondary" href="/account/signin">Sign in</a>
+        </div>
+        <div class="product-device shadow-sm d-none d-md-block"></div>
+        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row w-100 my-md-3 pl-md-3">
+            {% for category in categories %}
+                <div class="col-md-4 mb-md-4">
+                    <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 p-3">
+                            <h2 class="display-5">{{ category['name'] }}</h2>
+                            <p class="lead">{{ category['description'] }}</p>
+                            <a class="btn btn-outline-secondary" href="/category/{{ category['name'] }}">Go</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

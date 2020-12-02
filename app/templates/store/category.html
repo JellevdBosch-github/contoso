@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='category.css') }}">
+{% endblock %}
+{% block title %} {{ title }} {% endblock %}
+{% block content %}
+
+<section id="sidebar">
+    <p> <a href="/">Home</a> | <b>{{ category }}</b></p>
+    <div class="border-bottom pb-2 ml-2">
+        <h1 id="burgundy" class="display-7 font-weight-normal">Filters</h1>
+    </div>
+    <div class="py-2 border-bottom ml-3">
+        <form method="post" action="">
+            <h6 class="font-weight-bold border-bottom pb-2 mb-2">Brand</h6>
+            {% for brand in brands %}
+                <div class="form-group"> <input type="checkbox" name="brand[]"> <label>{{ brand }}</label> </div>
+            {% endfor %}
+            <h6 class="font-weight-bold border-bottom pb-2 mb-2">Status</h6>
+            {% for status in statuses %}
+                <div class="form-group"> <input type="checkbox" name="status[]"> <label>{{ status }}</label> </div>
+            {% endfor %}
+            <h6 class="font-weight-bold border-bottom pb-2 mb-2">Price range</h6>
+            <div class="form-group">
+                <label for="min_amount">Minimum</label><br>
+                <input type="number" id="min_amount" name="min_amount"><br><br>
+            </div>
+            <div class="form-group">
+                <label for="max_amount">Maximum</label><br>
+                <input type="number" id="max_amount" name="max_amount"><br><br>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Filter</button>
+        </form>
+    </div>
+</section>
+<section id="products">
+    <div class="container">
+        <div class="d-flex flex-row">
+            <div class="text-muted m-2" id="res">Showing {{ result_amount }} results</div>
+        </div>
+        <div class="row">
+            {% for product in products %}
+                <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1">
+                    <div class="card"> <img class="card-img-top" src="https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                        <div class="card-body">
+                            <h5><b><a style="color: black" href="/product/{{ product['id'] }}/{{ product['name'] }}">{{ product['name'] }}</a></b> </h5>
+                            <div class="d-flex flex-row my-2">
+                                <div class="text-muted">€{{ product['price'] }}</div>
+                            </div>
+                            {% if g.user %}
+                                <a class="w-100 btn btn-outline-secondary" href="/buy/{{ product['id'] }}/{{ product['name'] }}">Buy</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
