@@ -7,11 +7,14 @@ Installatie Guide:
   - conda:
     cd naar requirements dir,
     type in terminal: conda create --name foobar_env --file conda-requirements.txt
+  - pip:
+    cd naar requirements directory,
+    in terminal: pip install -r requirements.txt
 3. Activeer env
   - conda:
       - conda activate foobar_env
 3. maak database genaamd 'contoso' aan (mysql)
-4. run de applicatie
+4. run de applicatie (db tabellen worden aangemaakt)
 5. maak een medewerker account aan op /account/employee/signup
 6. maak een klant account aan op /account/signup
 
