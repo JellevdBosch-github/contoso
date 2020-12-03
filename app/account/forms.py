@@ -6,7 +6,7 @@ from wtforms.validators import *
 
 class RegistrationForm(FlaskForm):
     first_name = StringField('First name', validators=[InputRequired(), Length(3, 50)])
-    infix = StringField('Middle name', validators=[Optional(), Length(2, 50)])
+    middle_name = StringField('Middle name', validators=[Optional(), Length(2, 50)])
     last_name = StringField('Last name', validators=[InputRequired(), Length(3, 50)])
     email = StringField('Email',
                         validators=[Email("Email validation error!"), InputRequired(), Length(6, 25)])

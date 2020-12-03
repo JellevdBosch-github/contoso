@@ -47,7 +47,7 @@
                             <div class="d-flex flex-row my-2">
                                 <div class="text-muted">€{{ product['price'] }}</div>
                             </div>
-                            {% if g.user %}
+                            {% if session['logged_in'] %}
                                 <a class="w-100 btn btn-outline-secondary" href="/buy/{{ product['id'] }}/{{ product['name'] }}">Buy</a>
                             {% endif %}
                         </div>

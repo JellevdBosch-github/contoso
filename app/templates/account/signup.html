@@ -12,12 +12,12 @@
             <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
             <div class="form-group">
                 {{ wtf.form_field(form.first_name, class='form-control', placeholder='First name') }}
-                {{ wtf.form_field(form.infix, class='form-control', placeholder='Middle name') }}
+                {{ wtf.form_field(form.middle_name, class='form-control', placeholder='Middle name') }}
                 {{ wtf.form_field(form.last_name, class='form-control', placeholder='Last name') }}
                 Gender:<br>
                 {{ wtf.form_field(form.gender, class='form-control', placeholder='Gender') }}
                 {{ wtf.form_field(form.title, class='form-control', placeholder='Title') }}
-                {{ wtf.form_field(form.date_of_birth, type='date', class='form-control', placeholder='Date of birth') }}
+                {{ wtf.form_field(form.date_of_birth, class='form-control', placeholder='Date of birth') }}
                 {{ wtf.form_field(form.phone_number, class='form-control', placeholder='Phone number') }}
                 {{ wtf.form_field(form.country, class='form-control', placeholder='Country') }}
                 {{ wtf.form_field(form.city, class='form-control', placeholder='City') }}

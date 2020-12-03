@@ -49,9 +49,9 @@
                         </svg>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdown">
-                        {% if g.user %}
-                            <a class="dropdown-item" href="/account/profile">Profile</a>
-                            <a class="dropdown-item" href="/account/shopping_cart">Shopping cart</a>
+                        {% if session['logged_in'] %}
+{#                            <a class="dropdown-item" href="/account/profile">Profile</a>#}
+{#                            <a class="dropdown-item" href="/account/shopping_cart">Shopping cart</a>#}
                             <a class="dropdown-item" href="/account/signout">Sign out</a>
                         {% else %}
                             <a class="dropdown-item" href="/account/signin">Sign in</a>
