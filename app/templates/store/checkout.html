@@ -13,7 +13,7 @@
                 <ul class="list-group mb-3">
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
-                            <h6 class="my-0">{{ product['name'] }}</h6>
+                            <h6 class="my-0"><a style="color: black" target="_blank" href="/product/{{ product['id'] }}/{{ product['name'] }}">{{ product['name'] }}</a></h6>
                             <small class="text-muted">{{ product['description'] }}</small>
                         </div>
                     </li>
@@ -25,11 +25,9 @@
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Personal info</h4>
-                <form>
-                    <div class="row">
-                        Name: << user full name >>
-                        << other info about user >>
-                    </div>
+                <form action="" method="post">
+                    <p class="lead">Name: {{ user['title'] }} {{ user['first_name'] }} {{ user['middle_name'] }} {{ user['last_name'] }}</p>
+                    <p class="lead">Delivery address: {{ user['country'] }} {{ user['city'] }} {{ user['street'] }} {{ user['house_number'] }} {{ user['zip_code'] }}</p>
                     <hr class="mb-4">
                     <button class="btn btn-primary btn-lg btn-block" type="submit">Complete checkout</button>
                 </form>

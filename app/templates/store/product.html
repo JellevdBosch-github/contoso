@@ -20,12 +20,49 @@
                         </div>
                         <span class="text-muted">€{{ product['price'] }}</span>
                     </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Brand</h6>
+                        </div>
+                        <span class="text-muted">{{ product['brand_name'] }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Weight</h6>
+                        </div>
+                        <span class="text-muted">{{ product['weight'] }}{{ product['weight_unit'] }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Size</h6>
+                        </div>
+                        <span class="text-muted">{{ product['size'] }}{{ product['size_unit'] }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Color</h6>
+                        </div>
+                        <span class="text-muted">{{ product['color'] }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Type</h6>
+                        </div>
+                        <span class="text-muted">{{ product['type'] }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Manufacturer</h6>
+                        </div>
+                        <span class="text-muted">{{ product['manufacturer'] }}</span>
+                    </li>
                 </ul>
             </div>
             <div class="col-md-8 order-md-1">
                 <div class="text-muted">{{ product['status'] }}</div>
                 <h4 class="mb-3">{{ product['name'] }}</h4>
                 <p class="lead">{{ product['description'] }}</p>
+                <img src="https://via.placeholder.com/400x250" alt="placeholder product image">
             </div>
         </div>
     </div>

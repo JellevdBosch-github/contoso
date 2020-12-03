@@ -48,7 +48,61 @@ class Customer(Base):
     customer_type = db.Column(db.String(15), default='', nullable=False)
     title = db.Column(db.String(8), default='', nullable=False)
 
-    # orders = db.relationship('Order', lazy='select', backref=db.backref('customer', lazy='joined'))
+    orders = db.relationship('Order', lazy='select', backref=db.backref('customer', lazy='joined'
+                                                                        , cascade="all, delete"))
 
     def __repr__(self):
         return f'<Customer #{self.id} | {self.first_name} {self.middle_name} {self.last_name}>'
+
+
+class Category(Base):
+    __tablename__ = 'category'
+
+    name = db.Column(db.String(50), nullable=False)
+    description = db.Column(db.String(50), nullable=False)
+
+    products = db.relationship('Product', lazy='select', backref=db.backref('category', lazy='joined',
+                                                                            cascade="all, delete"))
+
+    def __repr__(self):
+        return f'<Category #{self.id} | {self.name} {self.description}>'
+
+
+class Product(Base):
+    __tablename__ = 'product'
+
+    name = db.Column(db.String(50), nullable=False)
+    description = db.Column(db.String(50), nullable=False)
+    type = db.Column(db.String(50), nullable=False)
+    manufacturer = db.Column(db.String(50), nullable=False)
+    brand_name = db.Column(db.String(20), nullable=False)
+    color = db.Column(db.String(20), nullable=False)
+    size = db.Column(db.String(50), nullable=False)
+    size_unit_measurement = db.Column(db.String(20), nullable=False)
+    weight = db.Column(db.DECIMAL(3, 2), nullable=False)
+    weight_unit_measurement = db.Column(db.String(40), nullable=False)
+    cost = db.Column(db.DECIMAL(6, 2), nullable=False)
+    price = db.Column(db.DECIMAL(6, 2), nullable=False)
+    status = db.Column(db.String(25), nullable=False)
+    product_url = db.Column(db.String(150), nullable=False)
+
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id', ondelete="CASCADE"), nullable=False)
+
+    orders = db.relationship('Order', lazy='select', backref=db.backref('product', lazy='joined',
+                                                                        cascade="all, delete"))
+
+    def __repr__(self):
+        return f'<Product #{self.id} | {self.name} {self.description}>'
+
+
+class Order(Base):
+    __tablename__ = 'order'
+
+    cost = db.Column(db.DECIMAL(6, 2), nullable=False)
+    customer_id = db.Column(db.Integer, db.ForeignKey('customer.id', ondelete="CASCADE"), nullable=False)
+    product_id = db.Column(db.Integer, db.ForeignKey('product.id', ondelete="CASCADE"), nullable=False)
+
+    def __repr__(self):
+        return f'<Product #{self.id} | {self.name} {self.description}>'
+
+

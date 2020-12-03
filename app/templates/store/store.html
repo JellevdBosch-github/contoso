@@ -9,7 +9,9 @@
             <h1 class="display-4 font-weight-normal">Contoso store</h1>
             <p class="lead font-weight-normal">Buy our products now! Check out our highlighted categories below with the best deals!</p>
             <a href="/categories" class="btn btn-primary my-2">Categories</a>
-            <a class="btn btn-outline-secondary" href="/account/signin">Sign in</a>
+            {% if not session['logged_in'] %}
+                <a class="btn btn-outline-secondary" href="/account/signin">Sign in</a>
+            {% endif %}
         </div>
         <div class="product-device shadow-sm d-none d-md-block"></div>
         <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
@@ -23,7 +25,7 @@
                         <div class="my-3 p-3">
                             <h2 class="display-5">{{ category['name'] }}</h2>
                             <p class="lead">{{ category['description'] }}</p>
-                            <a class="btn btn-outline-secondary" href="/category/{{ category['name'] }}">Go</a>
+                            <a class="btn btn-outline-secondary" href="/category/{{ category['id'] }}/{{ category['name'] }}">Go</a>
                         </div>
                     </div>
                 </div>
