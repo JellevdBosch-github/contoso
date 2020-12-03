@@ -42,6 +42,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/categories">Categories</a>
                 </li>
+                {% if session['employee'] %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                {% endif %}
                 <li class="nav-item dropdown right">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <svg style="margin-top: 5px" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

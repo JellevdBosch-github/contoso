@@ -22,8 +22,10 @@ def not_found(error):
 
 from app.account.controller import mod_account as account_module
 from app.store.controller import mod_store as store_module
+from app.dashboard.controller import mod_dashboard as dashboard_module
 
 app.register_blueprint(account_module)
 app.register_blueprint(store_module)
+app.register_blueprint(dashboard_module)
 
 db.create_all()

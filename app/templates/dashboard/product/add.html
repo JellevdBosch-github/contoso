@@ -1,0 +1,33 @@
+{% extends "dashboard/dashboard.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='account_form.css') }}">
+{% endblock %}
+
+{% block dashboard_content %}
+        <hr>
+        <form action="" method="post" class="form form-signin" role="form">
+            {{ form.csrf_token() }}
+            <h1 class="h3 mb-3 font-weight-normal">Create product</h1>
+            <div class="form-group">
+                {{ wtf.form_field(form.name, class='form-control', placeholder='Product name') }}
+            </div>
+            <div class="form-group">
+                {{ wtf.form_field(form.description, class='form-control', placeholder='Product description') }}
+                {{ wtf.form_field(form.type, class='form-control', placeholder='Product type') }}
+                {{ wtf.form_field(form.manufacturer, class='form-control', placeholder='Product manufacturer') }}
+                {{ wtf.form_field(form.brand_name, class='form-control', placeholder='Product brand') }}
+                {{ wtf.form_field(form.color, class='form-control', placeholder='Product color') }}
+                {{ wtf.form_field(form.size, class='form-control', placeholder='Product size') }}
+                {{ wtf.form_field(form.weight, class='form-control', placeholder='Product weight') }}
+                {{ wtf.form_field(form.size_unit_measurement, class='form-control', placeholder='Product size unit') }}
+                {{ wtf.form_field(form.weight_unit_measurement, class='form-control', placeholder='Product weight unit') }}
+                {{ wtf.form_field(form.cost, class='form-control', placeholder='Product cost') }}
+                {{ wtf.form_field(form.price, class='form-control', placeholder='Product price') }}
+                {{ wtf.form_field(form.status, class='form-control', placeholder='Product status') }}
+                {{ wtf.form_field(form.category_name, class='form-control', placeholder='Product category name') }}
+            </div>
+            {{ wtf.form_field(form.submit_create_product, type='submit', class='form-control btn btn-lg btn-primary btn-block', placeholder='Add product') }}
+        </form>
+{% endblock %}
+

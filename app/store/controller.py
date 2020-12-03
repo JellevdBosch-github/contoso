@@ -2,7 +2,7 @@ from flask import Blueprint, request, render_template, redirect, url_for, sessio
 from werkzeug.security import check_password_hash, generate_password_hash
 from app import db
 from app.models import Customer, Category, Product, Order
-from app.utils import login_required
+from app.utils import login_required, customer_required
 from app.account.forms import LoginForm, RegistrationForm, ForgotPassword
 
 mod_store = Blueprint('store', __name__, url_prefix='/')
@@ -90,6 +90,7 @@ def product(product_id, product_name):
 
 @mod_store.route('/buy/<product_id>/<product_name>', methods=['GET', 'POST'])
 @login_required
+@customer_required
 def checkout(product_id, product_name):
     i = Product.query.filter_by(id=product_id).first()
     product = {

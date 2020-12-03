@@ -1,0 +1,21 @@
+{% extends "dashboard/dashboard.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='account_form.css') }}">
+{% endblock %}
+
+{% block dashboard_content %}
+        <hr>
+        <form action="" method="post" class="form form-signin" role="form">
+            {{ form.csrf_token() }}
+            <h1 class="h3 mb-3 font-weight-normal">Create category</h1>
+            <div class="form-group">
+                {{ wtf.form_field(form.name, class='form-control', placeholder='Category name') }}
+            </div>
+            <div class="form-group">
+                {{ wtf.form_field(form.description, class='form-control', placeholder='Category description') }}
+            </div>
+            {{ wtf.form_field(form.submit_create_cat, type='submit', class='form-control btn btn-lg btn-primary btn-block', placeholder='Add category') }}
+        </form>
+{% endblock %}
+

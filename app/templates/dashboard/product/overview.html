@@ -1,0 +1,27 @@
+{% extends "dashboard/dashboard.html" %}
+
+{% block dashboard_content %}
+        <h2 style="color: black" class="display-5">Overview products</h2>
+        <p class="lead">Remove and edit products via here</p>
+        <p class="lead"><a href="/dashboard/product/add">Add product here</a></p>
+       <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                {% for product in products %}
+                    <tr>
+                        <td>{{ product['id'] }}</td>
+                        <td>{{ product['name'] }}</td>
+                        <td>{{ product['description'] }}</td>
+                        <td><a href="/dashboard/product/remove/{{ product['id'] }}">Remove</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+       </div>
+{% endblock %}

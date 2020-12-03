@@ -48,11 +48,49 @@ class Customer(Base):
     customer_type = db.Column(db.String(15), default='', nullable=False)
     title = db.Column(db.String(8), default='', nullable=False)
 
-    orders = db.relationship('Order', lazy='select', backref=db.backref('customer', lazy='joined'
-                                                                        , cascade="all, delete"))
+    orders = db.relationship('Order', lazy='select', backref=db.backref('customer', lazy='joined'))
 
     def __repr__(self):
         return f'<Customer #{self.id} | {self.first_name} {self.middle_name} {self.last_name}>'
+
+
+class Employee(Base):
+
+    __tablename__ = 'employee'
+
+    # Personal info
+    first_name = db.Column(db.String(50), nullable=False)
+    middle_name = db.Column(db.String(50), nullable=True)
+    last_name = db.Column(db.String(50), nullable=False)
+    title = db.Column(db.String(8), default='', nullable=False)
+
+    birth_date = db.Column(db.DATE, default=db.func.current_date(), nullable=False)
+    # m = married, s = single, d = divorced, u = unknown
+    marital_status = db.Column(db.CHAR(1), default='u', nullable=False)
+    # m = male, f = female, o = other, u = unknown
+    gender = db.Column(db.CHAR(1), default='u', nullable=False)
+    phone_number = db.Column(db.String(20), default='', nullable=False)
+
+    # Address
+    country = db.Column(db.String(40), default='', nullable=False)
+    city = db.Column(db.String(40), default='', nullable=False)
+    street = db.Column(db.String(40), default='', nullable=False)
+    house_number = db.Column(db.String(6), default='', nullable=False)
+    zip_code = db.Column(db.CHAR(6), default='', nullable=False)
+
+    # Identification: email & password
+    email = db.Column(db.String(50), nullable=False,
+                      unique=True)
+    password = db.Column(db.String(50), nullable=False)
+
+    # Employee info
+    hire_date = db.Column(db.DATE, default=db.func.current_date(), nullable=False)
+    vacation_hours = db.Column(db.SMALLINT, default=0, nullable=False)
+    emergency_name = db.Column(db.String(150), default='', nullable=False)
+    emergency_phone = db.Column(db.String(25), default='', nullable=False)
+
+    def __repr__(self):
+        return f'<Employee #{self.id} | {self.first_name} {self.middle_name} {self.last_name}>'
 
 
 class Category(Base):
@@ -61,8 +99,7 @@ class Category(Base):
     name = db.Column(db.String(50), nullable=False)
     description = db.Column(db.String(50), nullable=False)
 
-    products = db.relationship('Product', lazy='select', backref=db.backref('category', lazy='joined',
-                                                                            cascade="all, delete"))
+    products = db.relationship('Product', lazy='select', backref=db.backref('category', lazy='joined'))
 
     def __repr__(self):
         return f'<Category #{self.id} | {self.name} {self.description}>'
@@ -79,7 +116,7 @@ class Product(Base):
     color = db.Column(db.String(20), nullable=False)
     size = db.Column(db.String(50), nullable=False)
     size_unit_measurement = db.Column(db.String(20), nullable=False)
-    weight = db.Column(db.DECIMAL(3, 2), nullable=False)
+    weight = db.Column(db.DECIMAL(5, 2), nullable=False)
     weight_unit_measurement = db.Column(db.String(40), nullable=False)
     cost = db.Column(db.DECIMAL(6, 2), nullable=False)
     price = db.Column(db.DECIMAL(6, 2), nullable=False)
@@ -88,8 +125,7 @@ class Product(Base):
 
     category_id = db.Column(db.Integer, db.ForeignKey('category.id', ondelete="CASCADE"), nullable=False)
 
-    orders = db.relationship('Order', lazy='select', backref=db.backref('product', lazy='joined',
-                                                                        cascade="all, delete"))
+    orders = db.relationship('Order', lazy='select', backref=db.backref('product', lazy='joined'))
 
     def __repr__(self):
         return f'<Product #{self.id} | {self.name} {self.description}>'
