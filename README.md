@@ -10,4 +10,11 @@ Installatie Guide:
 3. Activeer env
   - conda:
       - conda activate foobar_env
-3. Run /app.py
+3. maak database genaamd 'contoso' aan (mysql)
+4. run de applicatie
+5. maak een medewerker account aan op /account/employee/signup
+6. maak een klant account aan op /account/signup
+
+Overige info:
+- Je hebt een categorie nodig om een product te kunnen maken, dit doe je door de naam vd categorie te gebruiken als identificatie
+- Je kan producten/categorieen beheren op het dashboard, mits je een employee bent
