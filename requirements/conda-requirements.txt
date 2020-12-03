@@ -6,10 +6,15 @@ certifi=2020.6.20=pyhd3eb1b0_3
 cffi=1.14.3=py37h7a1dbc1_0
 click=7.1.2=py_0
 cryptography=3.1.1=py37h7a1dbc1_0
+dnspython=2.0.0=pypi_0
+dominate=2.6.0=pypi_0
+email-validator=1.1.2=pypi_0
 flask=1.1.2=py_0
+flask-bootstrap=3.3.7.1=pypi_0
 flask-json=0.3.4=py_0
 flask-sqlalchemy=2.4.4=py_0
 flask-wtf=0.14.3=py_0
+idna=2.10=pypi_0
 itsdangerous=1.1.0=py37_0
 jinja2=2.11.2=py_0
 markupsafe=1.1.1=py37hfa6e2cd_1
@@ -23,6 +28,7 @@ six=1.15.0=py_0
 sqlalchemy=1.3.20=py37h2bbff1b_0
 sqlite=3.33.0=h2a8f88b_0
 vc=14.1=h0510ff6_4
+visitor=0.1.3=pypi_0
 vs2015_runtime=14.16.27012=hf0eaf9b_3
 werkzeug=1.0.1=py_0
 wheel=0.35.1=py_0
