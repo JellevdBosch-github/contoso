@@ -14,6 +14,7 @@ Installatie Guide:
   - conda:
       - conda activate foobar_env
 3. maak database genaamd 'contoso' aan (mysql)
+  - lokaal (hostnaam: 127.0.0.1) op port 3306
 4. run de applicatie (db tabellen worden aangemaakt)
 5. maak een medewerker account aan op /account/employee/signup
 6. maak een klant account aan op /account/signup
